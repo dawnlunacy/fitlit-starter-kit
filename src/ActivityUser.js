@@ -27,6 +27,14 @@ class ActivityUser {
 	lifeTimeTotalMiles() {
 		return parseFloat((this.array.reduce((a,b) => a + b.numSteps, 0) * this.strideLength/5280).toFixed(1))
 	}
+
+	stepsLatestDay(dateString) {
+		let userSteps = this.array.find(day => day.numSteps)
+	}
+
+	flightsLatestDay(dateString) {
+		let userSteps = this.array.find(day => day.flightsOfStairs)
+	}
 }
 
 if (typeof module !== 'undefined') {
