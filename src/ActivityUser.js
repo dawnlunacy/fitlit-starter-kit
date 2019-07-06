@@ -35,6 +35,8 @@ class ActivityUser {
 	flightsLatestDay(dateString) {
 		let userSteps = this.array.find(day => day.flightsOfStairs)
 	}
+
+	
 }
 
 if (typeof module !== 'undefined') {
