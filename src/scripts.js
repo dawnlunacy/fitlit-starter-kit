@@ -8,6 +8,9 @@ const currentHydrationUser = new HydrationUser([...hydrationUser]);
 const currentSleepRepo = new SleepRepository(sleepData, idNumber);
 const sleepUser = currentSleepRepo.findSleepUser();
 const currentSleepUser = new SleepUser([...sleepUser]);
+const currentActivityRepo = new ActivityRepository(activityData, idNumber, currentUser)
+const activityUser = currentActivityRepo.findActivityUser();
+const currentActivityUser = new ActivityUser([...activityUser])
 
 console.log(currentUser)
 
@@ -41,4 +44,13 @@ $('.infoDisplay').append(`<article class = "sleepInfo">
     <p> Here are the hours of sleep for the last week: ${currentSleepUser.sleepOneWeek('2019/09/16', '2019/09/22')}</p>
     <p> Here is the quality of sleep for the last week: ${currentSleepUser.sleepQualityOneWeek('2019/09/16', '2019/09/22')}</p>
     <p> Here is your average sleep hours for all time: ${currentSleepRepo.findUserSleepAverage()}</p>
-     <p> Here is your average sleep quality for all time: ${currentSleepRepo.findUserSleepQualityAverage()}</p>`)
+     <p> Here is your average sleep quality for all time: ${currentSleepRepo.findUserSleepQualityAverage()}</p>
+     </article>`)
+
+$('.infoDisplay').append(`<article class = "activityInfo">
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you took ${currentActivityUser.stepsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date)} steps!</p>
+   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were active for ${currentActivityUser.minutesActive(currentActivityUser.array[currentActivityUser.array.length - 1].date)} minutes!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were walked ${currentActivityUser.milesWalked(currentActivityUser.array[currentActivityUser.array.length - 1].date)} miles!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you climbed  ${currentActivityUser.flightsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date)} miles!</p>
+  
+
