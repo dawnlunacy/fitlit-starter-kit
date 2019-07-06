@@ -8,9 +8,9 @@ const currentHydrationUser = new HydrationUser([...hydrationUser]);
 const currentSleepRepo = new SleepRepository(sleepData, idNumber);
 const sleepUser = currentSleepRepo.findSleepUser();
 const currentSleepUser = new SleepUser([...sleepUser]);
-const currentActivityRepo = new ActivityRepository(activityData, idNumber, currentUser)
+const currentActivityRepo = new ActivityRepository(activityData, idNumber, userData)
 const activityUser = currentActivityRepo.findActivityUser();
-const currentActivityUser = new ActivityUser([...activityUser])
+const currentActivityUser = new ActivityUser([...activityUser], currentUser)
 
 console.log(currentUser)
 
@@ -49,8 +49,40 @@ $('.infoDisplay').append(`<article class = "sleepInfo">
 
 $('.infoDisplay').append(`<article class = "activityInfo">
   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you took ${currentActivityUser.stepsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date)} steps!</p>
-   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were active for ${currentActivityUser.minutesActive(currentActivityUser.array[currentActivityUser.array.length - 1].date)} minutes!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user took ${currentActivityRepo.usersStepsTakenAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date)} steps!</p>
+
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were active for ${currentActivityUser.minutesActive(currentActivityUser.array[currentActivityUser.array.length - 1].date)} minutes!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user was active for ${currentActivityRepo.usersMinutesActiveAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date)} minutes!</p>
+
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you climbed  ${currentActivityUser.flightsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date)} flights of stairs!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user climbed ${currentActivityRepo.usersStairsClimbedAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date)} flights of stairs!</p>
+
+
   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were walked ${currentActivityUser.milesWalked(currentActivityUser.array[currentActivityUser.array.length - 1].date)} miles!</p>
-  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you climbed  ${currentActivityUser.flightsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date)} miles!</p>
+
+  <p> For the week of 2019/06/15 - 2019/06/21 :<br><br> On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[0].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[0].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[0].flightsOfStairs} flights of stairs,
+  and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[0].minutesActive} minutes.</p>
+
+  <p>On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[1].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[1].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[1].flightsOfStairs} flight of stairs,
+  and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[1].minutesActive} minutes.</p>
+
+  <p> On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[2].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[2].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[2].flightsOfStairs} flight of stairs,
+  and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[2].minutesActive} minutes.</p>
+
+  <p>On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[3].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[3].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[3].flightsOfStairs} flight of stairs,
+  and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[3].minutesActive} minutes.</p>
+
+  <p>On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[4].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[4].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[4].flightsOfStairs} flight of stairs,
+  and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[4].minutesActive} minutes.</p>
+
+  <p>On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[5].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[5].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[5].flightsOfStairs} flight of stairs,
+  and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[5].minutesActive} minutes.</p>
+
+  <p> On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].flightsOfStairs} flight of stairs,
+  and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].minutesActive} minutes.</p>
+  </article>`)
+
+
+  
   
 
