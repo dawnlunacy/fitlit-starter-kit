@@ -11,7 +11,7 @@ class ActivityUser {
 	}
 
 	minutesActive(dateString) {
-		return this.array.find(day => day.date === dateString).minutesActive;
+		return this.array.find(day => day.date === dateString).minutesActive.toLocaleString();
 	}	
 
 	stepGoalMet(dateString) {
@@ -34,8 +34,14 @@ class ActivityUser {
 	flightsLatestDay(dateString) {
 		let userSteps = this.array.find(day => day.flightsOfStairs)
 	}
-}
 
+	weeklyActivity(startDate, endDate) {
+		let week = this.array.filter(day => 
+			day.date >= startDate && day.date <= endDate)
+		return week
+	}
+}
+  
 if (typeof module !== 'undefined') {
   module.exports = ActivityUser;
 }
