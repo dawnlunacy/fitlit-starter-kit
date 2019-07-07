@@ -83,6 +83,7 @@ $('.infoDisplay').append(`<article class = "activityInfo">
   </article>`)
 
 
+console.log(currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21"));
   
   
 

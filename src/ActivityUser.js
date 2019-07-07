@@ -3,7 +3,6 @@ class ActivityUser {
 		this.array = array;
 		this.strideLength = user.strideLength;
 		this.dailyStepGoal = user.dailyStepGoal;
-		this.friends = user.friends;
 	}
 
 	milesWalked(dateString) {
@@ -41,6 +40,7 @@ class ActivityUser {
 			day.date >= startDate && day.date <= endDate)
 		return week
 	}
+
 }
   
 if (typeof module !== 'undefined') {
