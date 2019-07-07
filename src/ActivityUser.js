@@ -41,6 +41,35 @@ class ActivityUser {
 		return week
 	}
 
+	increasingStepTrend() {
+		let stepsArray = this.array.map(obj => obj.numSteps)
+		let keysValuesArray = stepsArray.map((obj,i) => [i, obj])
+		let resultArr = [];
+		let testArr = keysValuesArray.forEach((arr, i, array) => {
+			if(i !== 0 && i !== 99  && array[--i][1] < arr[1] && arr[1] < array[i += 2][1]){
+						resultArr.push(array[i])
+			}
+		});
+		let dateInfo = resultArr.map(arr => 
+			this.array[arr[0]].date);
+		return dateInfo;
+	}
+
+
+	increasingFlightsTrend() {
+		let flightsArray = this.array.map(obj => obj.flightsOfStairs)
+		let keysValuesArray = flightsArray.map((obj,i) => [i, obj])
+		let resultArr = [];
+		let testArr = keysValuesArray.forEach((arr, i, array) => {
+			if(i !== 0 && i !== 99  && array[--i][1] < arr[1] && arr[1] < array[i += 2][1]){
+						resultArr.push(array[i])
+			}
+		});
+		let dateInfo = resultArr.map(arr => 
+			this.array[arr[0]].date);
+		return dateInfo;
+	}
+
 }
   
 if (typeof module !== 'undefined') {
