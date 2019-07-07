@@ -7,6 +7,7 @@ class ActivityRepository {
 		this.user = this.findUser();
 		this.strideLength = this.user.strideLength;
 		this.dailyStepGoal = this.user.dailyStepGoal;
+		this.friends = this.user.friends;
 	}
 
 	findActivityUser() {
@@ -45,6 +46,20 @@ class ActivityRepository {
 		let date = this.activityDataset.filter(day => day.date === dateString)
 		return Math.ceil(date.reduce((a,b) => 
 			a + b.minutesActive, 0)/date.length);
+	}
+
+	totalWeeklySteps(startDate, endDate) {
+		let filteredMap = this.friends.map(friend => this.activityDataset.filter(day=> 
+			day.userID === friend && day.date >= startDate && day.date <= endDate
+		).reduce((a,b) => {
+			if(!a['id']) {
+				a['id'] = b.userID;
+				a['steps'] = 0
+			}
+			a['steps'] += b.numSteps
+			return a
+		}, {}));
+		return filteredMap
 	}
 
 }

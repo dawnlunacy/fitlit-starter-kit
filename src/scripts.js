@@ -82,7 +82,21 @@ $('.infoDisplay').append(`<article class = "activityInfo">
   and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].minutesActive} minutes.</p>
   </article>`)
 
+console.log(currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21"));
 
-  
-  
-
+	let flightsArray = currentActivityUser.array.map(obj => obj.flightsOfStairs)
+		console.log('flights', flightsArray)
+		let keysValuesArray = flightsArray.map((obj,i) => [i, obj])
+		let resultArr = [];
+		console.log(keysValuesArray)
+		let testArr = keysValuesArray.forEach((arr, i, array) => {
+			if(i !== 0 && i !== 99  && array[--i][1] < arr[1] && arr[1] < array[i += 2][1]){
+						resultArr.push(array[i])
+			}
+		});
+		let dateInfo = resultArr.map(arr => 
+			currentActivityUser.array[arr[0]].date);
+		console.log(resultArr)
+		console.log('dateinfo',dateInfo)
+		// return dateInfo;
+// currentActivityUser.increasingStepTrend();
