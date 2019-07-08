@@ -22,16 +22,14 @@ $('.infoDisplay').append(`
 	  <p> address: <span class = "address">${currentUser.address}</span> </p>
 	  <p> email: <span class = "email">${currentUser.email}</span> </p>
 	  <p> strideLength: <span class = "strideLength">${currentUser.strideLength} </span> </p>
-	  <p> dailyStepGoal: <span class = "dailyStepGoal">${currentUser.dailyStepGoal} </span> </p>
-	  <p>Friends</p>
+	  <p> dailyStepGoal: <span class = "dailyStepGoal">${currentUser.dailyStepGoal.toLocaleString()} </span> </p>
+	  <p>Friends:</p>
 	  <ul>
 	    <li>friend1</li>
 	    <li>friend2</li>
 	    <li>friend3</li>
 	  </ul>
 	</article>`)
-
-console.log(currentHydrationUser.flOzOneWeek())
 
 $('.infoDisplay').append(`<article class = "hydrationInfo">
           <p> On ${currentHydrationUser.array[currentHydrationUser.array.length - 1].date} You Drank: <span class = "currentDateHydro">${currentHydrationUser.flOzOneDay(currentHydrationUser.array[0].date)} ounces of water!</span> </p>
@@ -40,22 +38,22 @@ $('.infoDisplay').append(`<article class = "hydrationInfo">
         </article>`)
 
 $('.infoDisplay').append(`<article class = "sleepInfo">
-    <p> On ${currentSleepUser.array[currentSleepUser.array.length - 1].date} you slept ${currentSleepUser.sleepOneDay(currentSleepUser.array[currentSleepUser.array.length - 1].date)} hours with a sleep quality of ${currentSleepUser.sleepQualityOneDay(currentSleepUser.array[currentSleepUser.array.length - 1].date)}!</p>
-    <p> Here are the hours of sleep for the last week: ${currentSleepUser.sleepOneWeek('2019/09/16', '2019/09/22')}</p>
-    <p> Here is the quality of sleep for the last week: ${currentSleepUser.sleepQualityOneWeek('2019/09/16', '2019/09/22')}</p>
-    <p> Here is your average sleep hours for all time: ${currentSleepRepo.findUserSleepAverage()}</p>
-     <p> Here is your average sleep quality for all time: ${currentSleepRepo.findUserSleepQualityAverage()}</p>
+    <p> On ${currentSleepUser.array[currentSleepUser.array.length - 1].date} you slept ${currentSleepUser.sleepPropertyOneDay(currentSleepUser.array[currentSleepUser.array.length - 1].date, 'hoursSlept')} hours with a sleep quality of ${currentSleepUser.sleepPropertyOneDay(currentSleepUser.array[currentSleepUser.array.length - 1].date, 'sleepQuality')}!</p>
+    <p> Here are the hours of sleep for the last week: ${currentSleepUser.sleepPropertyOneWeek('2019/09/16', '2019/09/22', 'hoursSlept')}</p>
+    <p> Here is the quality of sleep for the last week: ${currentSleepUser.sleepPropertyOneWeek('2019/09/16', '2019/09/22', 'sleepQuality')}</p>
+    <p> Here is your average sleep hours for all time: ${currentSleepRepo.findUserAverage('hoursSlept')}</p>
+     <p> Here is your average sleep quality for all time: ${currentSleepRepo.findUserAverage('sleepQuality')}</p>
      </article>`)
 
 $('.infoDisplay').append(`<article class = "activityInfo">
-  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you took ${currentActivityUser.stepsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date)} steps!</p>
-  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user took ${currentActivityRepo.usersStepsTakenAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date)} steps!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you took ${currentActivityUser.statsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'numSteps')} steps!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user took ${currentActivityRepo.usersAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'numSteps')} steps!</p>
 
   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were active for ${currentActivityUser.minutesActive(currentActivityUser.array[currentActivityUser.array.length - 1].date)} minutes!</p>
-  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user was active for ${currentActivityRepo.usersMinutesActiveAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date)} minutes!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user was active for ${currentActivityRepo.usersAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'minutesActive')} minutes!</p>
 
-  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you climbed  ${currentActivityUser.flightsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date)} flights of stairs!</p>
-  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user climbed ${currentActivityRepo.usersStairsClimbedAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date)} flights of stairs!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you climbed  ${currentActivityUser.statsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'flightsOfStairs')} flights of stairs!</p>
+  <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user climbed ${currentActivityRepo.usersAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'flightsOfStairs')} flights of stairs!</p>
 
 
   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were walked ${currentActivityUser.milesWalked(currentActivityUser.array[currentActivityUser.array.length - 1].date)} miles!</p>
@@ -84,19 +82,8 @@ $('.infoDisplay').append(`<article class = "activityInfo">
 
 console.log(currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21"));
 
-	let flightsArray = currentActivityUser.array.map(obj => obj.flightsOfStairs)
-		console.log('flights', flightsArray)
-		let keysValuesArray = flightsArray.map((obj,i) => [i, obj])
-		let resultArr = [];
-		console.log(keysValuesArray)
-		let testArr = keysValuesArray.forEach((arr, i, array) => {
-			if(i !== 0 && i !== 99  && array[--i][1] < arr[1] && arr[1] < array[i += 2][1]){
-						resultArr.push(array[i])
-			}
-		});
-		let dateInfo = resultArr.map(arr => 
-			currentActivityUser.array[arr[0]].date);
-		console.log(resultArr)
-		console.log('dateinfo',dateInfo)
-		// return dateInfo;
-// currentActivityUser.increasingStepTrend();
+currentSleepRepo.findSleepQualityGreaterThanThree("2019/06/15", "2019/06/21")
+
+currentSleepRepo.findMostSleep("2019/06/15")
+
+		currentActivityUser.increasingTrends('numSteps');
