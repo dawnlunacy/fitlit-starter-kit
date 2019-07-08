@@ -6,7 +6,7 @@ class User {
     this.email = obj.email;
     this.strideLength = obj.strideLength;
     this.dailyStepGoal = obj.dailyStepGoal;
-    this.friends = obj.friends
+    this.friends = obj.friends;
   }
 
   giveName() {
@@ -14,7 +14,6 @@ class User {
   }
 
 }
-
 
   if (typeof module !== 'undefined') {
   module.exports = User;

@@ -27,16 +27,13 @@ describe('SleepRepository', function() {
 		expect(newSleepRepository.id).to.equal(1)
 	});
 
-	describe('findUserSleepAverage', function() {
+	describe('findUserAverage', function() {
 		it('should be able to find the average hours slept per day for a user', function() {
-			expect(newSleepRepository.findUserSleepAverage()).to.equal(7.6)
+			expect(newSleepRepository.findUserAverage('hoursSlept')).to.equal(7.6)
 		});
-	});
-
-	describe('findUserSleepQualityAverage', function() {
 		it('should be able to find the average sleep quality per day for a user', function() {
-			expect(newSleepRepository.findUserSleepQualityAverage()).to.equal(2.8)
-		});
+			expect(newSleepRepository.findUserAverage('sleepQuality')).to.equal(2.8)
+		})
 	});
 
 	describe('findSleepQualityAverage', function() {

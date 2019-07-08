@@ -9,16 +9,10 @@ class SleepRepository {
     return dataset.filter(user => user.userID === id)
   }
 
-  findUserSleepAverage() {
-    let average = (this.userSleep.reduce((hours, user) =>
-      hours + user.hoursSlept, 0)/this.userSleep.length).toFixed(1);
+  findUserAverage(property, arr = this.userSleep) {
+    let average = (arr.reduce((hours, user) => 
+      hours + user[property], 0)/arr.length).toFixed(1);
     return parseFloat(average);
-  }
-
-  findUserSleepQualityAverage(arr = this.userSleep) {
-    let average = (arr.reduce((hours, user) =>
-      hours + user.sleepQuality, 0)/arr.length).toFixed(1);
-    return parseFloat(average); 
   }
 
   findSleepQualityAverage() {
@@ -35,7 +29,7 @@ class SleepRepository {
       if(!obj[user.userID]) {
         obj[user.userID]
         }
-        obj[user.userID] = this.findUserSleepQualityAverage(this.findSleepUser(week,user.userID))
+        obj[user.userID] = this.findUserAverage('sleepQuality', this.findSleepUser(week,user.userID))
       });
     let prelimArray = Object.keys(obj).map((el, i) => [el, Object.values(obj)[i]])
     let answer = [];
@@ -62,10 +56,7 @@ class SleepRepository {
     return parseFloat(average);
   }
 
-
-
 }
-
 
 if (typeof module !== 'undefined') {
     module.exports = SleepRepository;
