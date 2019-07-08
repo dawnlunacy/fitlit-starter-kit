@@ -13,7 +13,7 @@ let newActivityUser;
 let newUserRepo;
 let newUser;
 
-describe('ActivityRepository', function() {
+describe('ActivityUser', function() {
 	beforeEach(function() {
 		newActivityUserRepo = new ActivityRepository(mockActivityData, 1, mockUsers);
 		newUserRepo = new 

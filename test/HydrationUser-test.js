@@ -18,7 +18,7 @@ describe ('HydrationUser', function() {
         expect(HydrationUser).to.be.a('function');
     });
 
-    it('should be an instance of HdrationUser', function () {
+    it('should be an instance of HydrationUser', function () {
         expect(newHydrationUser).to.be.an.instanceof(HydrationUser)
     });
 
@@ -34,9 +34,7 @@ describe ('HydrationUser', function() {
 
     describe('flOzOneWeek', function() {
         it('should return the number of ounces consumed over the course of a week', function() {
-            expect(newHydrationUser.flOzOneWeek()).to.eql(
-                `<p>On 2019/06/15 you drank 75 ounces of water!</p><p>On 2019/06/16 you drank 47 ounces of water!</p><p>On 2019/06/17 you drank 96 ounces of water!</p><p>On 2019/06/18 you drank 61 ounces of water!</p><p>On 2019/06/19 you drank 91 ounces of water!</p><p>On 2019/06/20 you drank 50 ounces of water!</p><p>On 2019/06/21 you drank 50 ounces of water!</p>`
-              )      
+            expect(newHydrationUser.flOzOneWeek()).to.eql([['2019/06/15', 75],['2019/06/16', 47],['2019/06/17', 96],['2019/06/18', 61], ['2019/06/19', 91],['2019/06/20', 50],['2019/06/21', 50]])      
         });
     });
 
