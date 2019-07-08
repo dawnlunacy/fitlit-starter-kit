@@ -30,24 +30,6 @@ class ActivityRepository {
 			day.numSteps >= this.dailyStepGoal).map(day => day.date)
 	}
 
-	// usersStairsClimbedAverage(dateString) {
-	// 	let date = this.activityDataset.filter(day => day.date === dateString)
-	// 	return Math.ceil(date.reduce((a,b) => 
-	// 		a + b.flightsOfStairs, 0)/date.length);
-	// }
-
-	// usersStepsTakenAverage(dateString) {
-	// 	let date = this.activityDataset.filter(day => day.date === dateString)
-	// 	return Math.ceil(date.reduce((a,b) => 
-	// 		a + b.numSteps, 0)/date.length);
-	// }
-
-	// usersMinutesActiveAverage(dateString) {
-	// 	let date = this.activityDataset.filter(day => day.date === dateString)
-	// 	return Math.ceil(date.reduce((a,b) => 
-	// 		a + b.minutesActive, 0)/date.length);
-	// }
-
 	usersAverage(dateString, property) {
 		let date = this.activityDataset.filter(day => day.date === dateString);
 		return Math.ceil(date.reduce((a,b) => 

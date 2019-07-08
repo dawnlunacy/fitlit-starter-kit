@@ -29,16 +29,6 @@ class ActivityUser {
 		return parseFloat(miles);
 	}
 
-	// stepsLatestDay(dateString) {
-	// 	let day = this.array.find(day => day.date === dateString);
-	// 	return day.numSteps;
-	// }
-
-	// flightsLatestDay(dateString) {
-	// 	let day = this.array.find(day => day.date === dateString);
-	// 	return day.flightsOfStairs;
-	// }
-
 	statsLatestDay(dateString, property) {
 		let day = this.array.find(day => day.date === dateString);
 		return day[property];
@@ -49,34 +39,6 @@ class ActivityUser {
 			day.date >= startDate && day.date <= endDate);
 		return week;
 	}
-
-	// increasingStepTrend() {
-	// 	let stepsArray = this.array.map(obj => obj.numSteps)
-	// 	let keysValuesArray = stepsArray.map((obj,i) => [i, obj])
-	// 	let resultArr = [];
-	// 	let testArr = keysValuesArray.forEach((arr, i, array) => {
-	// 		if(i !== 0 && i !== 99  && array[--i][1] < arr[1] && arr[1] < array[i += 2][1]){
-	// 					resultArr.push(array[i])
-	// 		}
-	// 	});
-	// 	let dateInfo = resultArr.map(arr => 
-	// 		this.array[arr[0]].date);
-	// 	return dateInfo;
-	// }
-
-	// increasingFlightsTrend() {
-	// 	let flightsArray = this.array.map(obj => obj.flightsOfStairs)
-	// 	let keysValuesArray = flightsArray.map((obj,i) => [i, obj])
-	// 	let resultArr = [];
-	// 	let testArr = keysValuesArray.forEach((arr, i, array) => {
-	// 		if(i !== 0 && i !== 99  && array[--i][1] < arr[1] && arr[1] < array[i += 2][1]){
-	// 					resultArr.push(array[i])
-	// 		}
-	// 	});
-	// 	let dateInfo = resultArr.map(arr => 
-	// 		this.array[arr[0]].date);
-	// 	return dateInfo;
-	// }
 
 	increasingTrends(property) {
 		let propertyKeysArray = this.array.map((obj, i) => [i, obj[property]]);
