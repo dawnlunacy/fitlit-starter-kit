@@ -98,5 +98,10 @@ console.log(currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21"));
 			currentActivityUser.array[arr[0]].date);
 		console.log(resultArr)
 		console.log('dateinfo',dateInfo)
+
+
+    currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21" )
+    
+
 		// return dateInfo;
 // currentActivityUser.increasingStepTrend();
