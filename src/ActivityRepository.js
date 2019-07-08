@@ -7,6 +7,7 @@ class ActivityRepository {
 		this.user = this.findUser();
 		this.strideLength = this.user.strideLength;
 		this.dailyStepGoal = this.user.dailyStepGoal;
+		this.friends = user.friends;
 	}
 
 	findActivityUser() {
