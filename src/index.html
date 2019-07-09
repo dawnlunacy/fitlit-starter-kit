@@ -4,14 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>fitLIT</title>
+
+    <title>FitLit</title>
   </head>
   <body>
     <header>
-      <h1>fitLIT</h1>
+      <img src="../images/svg/fitlit.svg" class="fitlit-svg">
+      <h1>FitLit</h1>
       <h2> Hello <span class = "userFirstName"></span>!</h2>
-      <button class = "profile-button">Profile </button>
-    </header> 
+      <button class = "profile-button" type="button"> Profile </button>
+       <button class = "friend-button" type="button"> Friends </button>
+    </header>
     <section class= "profile-info hide">
       <div class = "profile-container">
         <ul>
@@ -19,6 +22,84 @@
           <li> <span class= "profile-address"> address: </span></li>
           <li> <span class= "profile-strideLength"> strideLength: </span></li>
           <li> <span class= "profile-dailyStepGoal"> dailyStepGoal: </span></li>
+        </ul>
+      </div>
+      <div class = "friend-container">
+        <ul>
+          <li> <span class= "friend"> friend1 </span></li>
+          <li> <span class= "friend"> friend2 </span></li>
+          <li> <span class= "friend"> friend3 </span></li>
+          <li> <span class= "friend"> friend4 </span></li>
+        </ul>
+      </div>
+    </section>
+    <section class= "info-display grid" data-packery='{ "itemSelector": ".grid-item" }'>
+
+      <article class="gutter-sizer"></article>
+
+      <article class= "step-goal-vs-avg grid-item">
+        <img src= "../images/svg/steps.svg" class= "icon">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <h3> Your Step goal is: </h3>
+        <h3> Avg User goal is: </h3>
+      </article>
+
+      <article class= "hydration grid-item">
+        <img src= "../images/svg/water.svg" class= "icon" id="icon-right">
+        <h3> Today you drank <span class="water-drank"></span> oz of water. </h3>
+        <h3> Avg User goal is: </h3>
+      </article>
+
+      <article class= "sleep grid-item">
+        <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
+        <h3> Last night you slept: </h3>
+        <h3> Your sleep quality was: </h3>
+      </article>
+
+      <article class= "sleep-avg grid-item">
+        <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
+        <h3> Your all time average of hours slept is: </h3>
+        <h3> You all time average quality of sleep is:  </h3>
+      </article>
+
+      <article class= "activity-recent grid-item">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <h3> You most recently were active for <span class= "recent-minutes-active"> </span> minutes.</h3>
+        <h3> You most recently took <span class= "recent-steps"> </span> steps.</h3>
+        <h3> You most recently walked <span class= "recent-distance"> </span> miles.</h3>
+      </article>
+
+      <article class= "activity-comparison-recent  grid-item grid-item--width2">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+      </article>
+
+      <article class= "activity-comparison-recent grid-item grid-item--width2">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+      </article>
+
+      <article class= "activity-weekly grid-item grid-item--width2">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+      </article>
+
+      <article class= "activity-step-challenge grid-item grid-item--width2">
+        <img src= "../images/svg/steps.svg" class= "icon">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+      </article>
+
+       <article class= "activity-trends-steps grid-item">
+        <img src= "../images/svg/steps.svg" class= "icon">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+      </article>
+
+      <article class= "activity-trends-stairs grid-item">
+        <img src= "../images/svg/steps.svg" class= "icon">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+      </article>
+
+      <article class= "activity-life-time-miles grid-item">
+        <img src= "../images/svg/trail.svg" class= "icon">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+      </article>
     </section>
     <output class= "infoDisplay">
       <div>
@@ -61,7 +142,8 @@
     <script type="text/javascript" src="./SleepUser.js"></script>
     <script type="text/javascript" src="./ActivityRepository.js"></script>
     <script type="text/javascript" src="./ActivityUser.js"></script>
-    <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+    <script src="../node_modules/packery/dist/packery.pkgd.min.js"></script>
+    <script src="../node_modules/draggabilly/dist/draggabilly.pkgd.min.js"></script>
     <script type="text/javascript" src="./scripts.js"></script>
   </body>
 </html>

@@ -19,6 +19,33 @@ const latestDaySleepCanvas = document.getElementById('latestDaySleepChart');
 const averageSleepCanvas = document.getElementById('averageSleepChart');
 const weeklySSMCanvas = document.getElementById('weeklySSMChart');
 
+$(document).ready(function() {
+
+  var $grid = $('.grid').packery({
+  itemSelector: '.grid-item',
+  columnWidth: 50,
+  rowHeight: 40,
+  gutter: 10,
+});
+
+var $draggable = $('.draggable').draggabilly({
+  // options...
+})
+
+
+var $grid = $('.grid').packery({
+  itemSelector: '.grid-item',
+  // columnWidth helps with drop positioning
+  columnWidth: 100
+});
+
+// make all grid-items draggable
+$grid.find('.grid-item').each( function( i, gridItem ) {
+  var draggie = new Draggabilly( gridItem );
+  // bind drag events to Packery
+  $grid.packery( 'bindDraggabillyEvents', draggie );
+});
+
 $('.userFirstName').text(currentUser.giveName());
 $('.ouncesToday').text(currentHydrationUser.flOzOneDay('2019/09/22'))
 
@@ -286,3 +313,5 @@ function displayStepChallenge(startDate, endDate) {
 }
 
 displayStepChallenge('2019/09/16', '2019/09/22')
+});
+
