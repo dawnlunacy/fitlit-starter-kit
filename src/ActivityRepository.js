@@ -37,7 +37,7 @@ class ActivityRepository {
 	}
 
 	totalWeeklySteps(startDate, endDate) {
-		let filteredMap = this.friends.map(friend => this.activityDataset.filter(day=> 
+		let filteredMap = this.friends.map(friend => this.activityDataset.filter(day=>
 			day.userID === friend && day.date >= startDate && day.date <= endDate
 		).reduce((a,b) => {
 			if(!a['id']) {

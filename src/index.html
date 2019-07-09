@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Activity Tracker</title>
+    <title>fitLIT</title>
   </head>
   <body>
     <header>
-      <h1>Activity Tracker</h1>
+      <h1>fitLIT</h1>
       <h2> Hello <span class = "userFirstName"></span>!</h2>
       <button class = "profile-button">Profile </button>
-    </header>
+    </header> 
     <section class= "profile-info hide">
       <div class = "profile-container">
         <ul>
@@ -19,10 +19,36 @@
           <li> <span class= "profile-address"> address: </span></li>
           <li> <span class= "profile-strideLength"> strideLength: </span></li>
           <li> <span class= "profile-dailyStepGoal"> dailyStepGoal: </span></li>
-
+    </section>
     <output class= "infoDisplay">
+      <div>
+        <canvas id="stepGoalChart" width="400" height="400">
+        </canvas>
+      </div>
+      <div>
+        <p class="hydrationChartText">Today You Drank <span class="ouncesToday"></span> ounces of water!</p>
+        <canvas id="hydrationWeekChart" width="400" height="400">
+        </canvas>
+      </div>
+      <div>
+        <canvas id="averageSleepChart" width="400" height="400">
+        </canvas>
+      </div>
+      <div>
+        <canvas id="latestDaySleepChart" width="400" height="400">
+        </canvas>
+      </div>
+      <div>
+        <canvas id="weeklySleepChart" width="400" height="400">
+        </canvas>
+      </div>
+      <div>
+        <canvas id="weeklySSMChart" width="400" height="400">
+        </canvas>
+      </div>
     </output>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="../data/users.js"></script>
     <script type="text/javascript" src="../data/hydration.js"></script>
     <script type="text/javascript" src="../data/sleep.js"></script>
