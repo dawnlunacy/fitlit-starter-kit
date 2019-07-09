@@ -32,8 +32,10 @@
         </ul>
       </div>
     </section>
-    <section class= "info-display grid">
-      
+    <section class= "info-display grid" data-packery='{ "itemSelector": ".grid-item" }'>
+
+      <article class="gutter-sizer"></article>
+
       <article class= "step-goal-vs-avg grid-item">
         <img src= "../images/svg/steps.svg" class= "icon">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
@@ -112,7 +114,8 @@
     <script type="text/javascript" src="./SleepUser.js"></script>
     <script type="text/javascript" src="./ActivityRepository.js"></script>
     <script type="text/javascript" src="./ActivityUser.js"></script>
-    <script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+    <script src="../node_modules/packery/dist/packery.pkgd.min.js"></script>
+    <script src="../node_modules/draggabilly/dist/draggabilly.pkgd.min.js"></script>
     <script type="text/javascript" src="./scripts.js"></script>
   </body>
 </html>

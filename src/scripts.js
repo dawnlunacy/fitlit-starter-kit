@@ -22,7 +22,24 @@ $(document).ready(function() {
   rowHeight: 40,
   gutter: 10,
 });
+
+var $draggable = $('.draggable').draggabilly({
+  // options...
 })
+
+
+var $grid = $('.grid').packery({
+  itemSelector: '.grid-item',
+  // columnWidth helps with drop positioning
+  columnWidth: 100
+});
+
+// make all grid-items draggable
+$grid.find('.grid-item').each( function( i, gridItem ) {
+  var draggie = new Draggabilly( gridItem );
+  // bind drag events to Packery
+  $grid.packery( 'bindDraggabillyEvents', draggie );
+});
 
 $('.userFirstName').text(currentUser.giveName());
 
@@ -112,6 +129,6 @@ console.log(currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21"));
 
     currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21" )
     
-
+});
 		// return dateInfo;
 // currentActivityUser.increasingStepTrend();
