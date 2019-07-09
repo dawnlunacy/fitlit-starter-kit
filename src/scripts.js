@@ -14,6 +14,16 @@ const currentActivityUser = new ActivityUser([...activityUser], currentUser)
 
 console.log(currentUser)
 
+$(document).ready(function() {
+
+  var $grid = $('.grid').packery({
+  itemSelector: '.grid-item',
+  columnWidth: 50,
+  rowHeight: 40,
+  gutter: 10,
+});
+})
+
 $('.userFirstName').text(currentUser.giveName());
 
 $('.infoDisplay').append(`
