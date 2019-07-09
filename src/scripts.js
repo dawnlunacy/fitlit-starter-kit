@@ -22,6 +22,8 @@ const weeklySSMCanvas = document.getElementById('weeklySSMChart');
 $('.userFirstName').text(currentUser.giveName());
 $('.ouncesToday').text(currentHydrationUser.flOzOneDay('2019/09/22'))
 
+currentActivityRepo.totalWeeklySteps('2019/09/16','2019/09/22')
+currentActivityUser.increasingTrends('numSteps')
 let stepGoalChart = new Chart(stepGoalCanvas, {
     type: 'bar',
     data: {
@@ -265,78 +267,22 @@ let weeklySSMChart = new Chart(weeklySSMCanvas, {
     		}
     }
 });
-        
-// $('.infoDisplay').append(`
-// 	<article class = "userInfo">
-// 	  <p> name: <span class = "userName">${currentUser.name}</span> </p>
-// 	  <p> address: <span class = "address">${currentUser.address}</span> </p>
-// 	  <p> email: <span class = "email">${currentUser.email}</span> </p>
-// 	  <p> strideLength: <span class = "strideLength">${currentUser.strideLength} </span> </p>
-// 	  <p> dailyStepGoal: <span class = "dailyStepGoal">${currentUser.dailyStepGoal.toLocaleString()} </span> </p>
-// 	  <p>Friends:</p>
-// 	  <ul>
-// 	    <li>friend1</li>
-// 	    <li>friend2</li>
-// 	    <li>friend3</li>
-// 	  </ul>
-// 	</article>`)
 
-// $('.infoDisplay').append(`<article class = "hydrationInfo">
-//           <p> On ${currentHydrationUser.array[currentHydrationUser.array.length - 1].date} You Drank: <span class = "currentDateHydro">${currentHydrationUser.flOzOneDay(currentHydrationUser.array[0].date)} ounces of water!</span> </p>
-//           <p> Latest Week:<span class = "latestWeekHydro">${currentHydrationUser.flOzOneWeek()}</span> </p>
-//           <p> Weekly Average: <span class = "weeklyAvgHydro">${currentHydrationRepo.findHydrationAverage()} ounces of water</span> </p>
-//         </article>`)
+function stepChallengePrep() {
+	var additionalObject = {id: currentUser.id, 	steps: currentActivityUser.weeklyActivity('2019/09/16', '2019/09/22').reduce((a, b) => a + b.numSteps, 0)};
+	var completeStepsArray = currentActivityRepo.totalWeeklySteps('2019/09/16', '2019/09/22');
+	completeStepsArray.unshift(additionalObject);
+	var namesArray = completeStepsArray.map(user => userData.find(obj => obj.id === user.id)).map(user => user.name.split(' ')[0]);
+	namesArray.forEach((firstname, i) => {
+		completeStepsArray[i]['name'] = firstname;
+	});
+	return completeStepsArray
+}
 
-// $('.infoDisplay').append(`<article class = "sleepInfo">
-//     <p> On ${currentSleepUser.array[currentSleepUser.array.length - 1].date} you slept ${currentSleepUser.sleepPropertyOneDay(currentSleepUser.array[currentSleepUser.array.length - 1].date, 'hoursSlept')} hours with a sleep quality of ${currentSleepUser.sleepPropertyOneDay(currentSleepUser.array[currentSleepUser.array.length - 1].date, 'sleepQuality')}!</p>
-//     <p> Here are the hours of sleep for the last week: ${currentSleepUser.sleepPropertyOneWeek('2019/09/16', '2019/09/22', 'hoursSlept')}</p>
-//     <p> Here is the quality of sleep for the last week: ${currentSleepUser.sleepPropertyOneWeek('2019/09/16', '2019/09/22', 'sleepQuality')}</p>
-//     <p> Here is your average sleep hours for all time: ${currentSleepRepo.findUserAverage('hoursSlept')}</p>
-//      <p> Here is your average sleep quality for all time: ${currentSleepRepo.findUserAverage('sleepQuality')}</p>
-//      </article>`)
+function displayStepChallenge(startDate, endDate) {
+	let display = `During the Week of ${startDate.slice(5)} to ${endDate.slice(5)}: <br><br>`;
+	stepChallengePrep().forEach(obj => display += `${obj.name} had a total of ${obj.steps.toLocaleString()} steps! <br>`)
+	$('.infoDisplay').append(display)
+}
 
-// $('.infoDisplay').append(`<article class = "activityInfo">
-//   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you took ${currentActivityUser.statsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'numSteps')} steps!</p>
-//   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user took ${currentActivityRepo.usersAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'numSteps')} steps!</p>
-
-//   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were active for ${currentActivityUser.minutesActive(currentActivityUser.array[currentActivityUser.array.length - 1].date)} minutes!</p>
-//   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user was active for ${currentActivityRepo.usersAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'minutesActive')} minutes!</p>
-
-//   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you climbed  ${currentActivityUser.statsLatestDay(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'flightsOfStairs')} flights of stairs!</p>
-//   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} the average user climbed ${currentActivityRepo.usersAverage(currentActivityUser.array[currentActivityUser.array.length - 1].date, 'flightsOfStairs')} flights of stairs!</p>
-
-
-//   <p> On ${currentActivityUser.array[currentActivityUser.array.length - 1].date} you were walked ${currentActivityUser.milesWalked(currentActivityUser.array[currentActivityUser.array.length - 1].date)} miles!</p>
-
-//   <p> For the week of 2019/06/15 - 2019/06/21 :<br><br> On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[0].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[0].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[0].flightsOfStairs} flights of stairs,
-//   and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[0].minutesActive} minutes.</p>
-
-//   <p>On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[1].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[1].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[1].flightsOfStairs} flight of stairs,
-//   and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[1].minutesActive} minutes.</p>
-
-//   <p> On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[2].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[2].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[2].flightsOfStairs} flight of stairs,
-//   and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[2].minutesActive} minutes.</p>
-
-//   <p>On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[3].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[3].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[3].flightsOfStairs} flight of stairs,
-//   and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[3].minutesActive} minutes.</p>
-
-//   <p>On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[4].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[4].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[4].flightsOfStairs} flight of stairs,
-//   and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[4].minutesActive} minutes.</p>
-
-//   <p>On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[5].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[5].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[5].flightsOfStairs} flight of stairs,
-//   and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[5].minutesActive} minutes.</p>
-
-//   <p> On ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].date} you took ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].numSteps.toLocaleString()} steps, climbed ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].flightsOfStairs} flight of stairs,
-//   and were active for ${currentActivityUser.weeklyActivity("2019/06/15", "2019/06/21")[6].minutesActive} minutes.</p>
-//   </article>`)
-
-// console.log(currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21"));
-
-// currentSleepRepo.findSleepQualityGreaterThanThree("2019/06/15", "2019/06/21")
-
-// console.log('miles', currentActivityUser.lifeTimeTotalMiles())
-
-// currentActivityRepo.totalWeeklySteps("2019/06/15", "2019/06/21")
-// currentSleepRepo.findMostSleep("2019/06/15")
-
-// 		currentActivityUser.increasingTrends('numSteps');
+displayStepChallenge('2019/09/16', '2019/09/22')
