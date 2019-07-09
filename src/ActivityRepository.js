@@ -47,6 +47,7 @@ class ActivityRepository {
 			a['steps'] += b.numSteps;
 			return a;
 		}, {}));
+		console.log('weekly steps', filteredMap)
 		return filteredMap;
 	}
 
