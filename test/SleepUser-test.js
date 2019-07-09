@@ -22,27 +22,23 @@ describe('SleepUser', function() {
 		expect(newSleepUser).to.be.an.instanceOf(SleepUser)
 	});
 
-	describe('sleepOneDay', function() {
+	describe('sleepPropertyOneDay', function() {
 		it('should show how many hours a user slept on a specific day', function() {
-			expect(newSleepUser.sleepOneDay("2019/06/13")).to.equal(4.1)
+			expect(newSleepUser.sleepPropertyOneDay('2019/06/13', 'hoursSlept')).to.equal(4.1)
+		});
+
+		it('should show the sleep quality for a user on one specific day', function() {
+			expect(newSleepUser.sleepPropertyOneDay('2019/06/13', 'sleepQuality')).to.equal(3.8)
 		});
 	});	
 
-	describe('sleepQualityOneDay', function() {
-		it('should show the sleep quality for a user on one specific day', function() {
-			expect(newSleepUser.sleepQualityOneDay("2019/06/13")).to.equal(3.8)
-		});
-	});
-
-	describe('sleepOneWeek', function() {
+	describe('sleepPropertyOneWeek', function() {
 		it('should show how many hours a user slept each day over a week', function() {
-			expect(newSleepUser.sleepOneWeek("2019/06/15", "2019/06/21")).to.eql(`<p>On 2019/06/15 you slept 6.1 hours!</p><p>On 2019/06/16 you slept 4.1 hours!</p><p>On 2019/06/17 you slept 8 hours!</p><p>On 2019/06/18 you slept 10.4 hours!</p><p>On 2019/06/19 you slept 10.7 hours!</p><p>On 2019/06/20 you slept 9.3 hours!</p><p>On 2019/06/21 you slept 7.8 hours!</p>`)
+			expect(newSleepUser.sleepPropertyOneWeek('2019/06/15', '2019/06/21', 'hoursSlept')).to.eql([['2019/06/15', 6.1],['2019/06/16', 4.1],['2019/06/17', 8],['2019/06/18', 10.4],['2019/06/19', 10.7],['2019/06/20', 9.3],['2019/06/21', 7.8]])
 		});
-	});
 
-	describe('sleepQualityOneWeek', function() {
 		it('should show a user\'s sleep quality each day over a week', function() {
-			expect(newSleepUser.sleepQualityOneWeek("2019/06/15", "2019/06/21")).to.eql(`<p>On 2019/06/15 your sleep quality was 2.2!</p><p>On 2019/06/16 your sleep quality was 3.8!</p><p>On 2019/06/17 your sleep quality was 2.6!</p><p>On 2019/06/18 your sleep quality was 3.1!</p><p>On 2019/06/19 your sleep quality was 1.2!</p><p>On 2019/06/20 your sleep quality was 1.2!</p><p>On 2019/06/21 your sleep quality was 4.2!</p>`)
+			expect(newSleepUser.sleepPropertyOneWeek('2019/06/15', '2019/06/21', 'sleepQuality')).to.eql([['2019/06/15', 2.2],['2019/06/16', 3.8],['2019/06/17', 2.6],['2019/06/18', 3.1],['2019/06/19', 1.2],['2019/06/20', 1.2],['2019/06/21', 4.2]])
 		});
 	});
 
