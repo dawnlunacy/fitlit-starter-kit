@@ -415,6 +415,14 @@ function displayStepChallenge(startDate, endDate) {
 	$('.activity-step-challenge').append(display)
 }
 
+
+
+
+
+
+
+
+
 function displayRecentActivity(dateString) {
 	$('.recent-minutes-active').append(currentActivityUser.statsLatestDay(dateString, 'minutesActive'));
 	$('.recent-steps').append(currentActivityUser.statsLatestDay(dateString, 'numSteps').toLocaleString());
@@ -436,4 +444,8 @@ displayTrend('numSteps', 'flightsOfStairs', 'steps taken', 'flights climbed');
 displayStepChallenge('2019/09/16', '2019/09/22');
 displayRecentActivity('2019/09/22');
 
+  $('.profile-button').on('click', () => {
+  $('.profile-info').toggleClass('hide');
+  
 });
+
