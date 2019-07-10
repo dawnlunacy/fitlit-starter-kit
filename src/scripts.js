@@ -313,5 +313,14 @@ function displayStepChallenge(startDate, endDate) {
 }
 
 displayStepChallenge('2019/09/16', '2019/09/22')
+
 });
+
+$('.profile-button').on('click', () => {
+  $('.profile-info').toggleClass('hide');
+  // $('.profile-info hide').toggleClass('hide');  
+});
+
+
+
 
