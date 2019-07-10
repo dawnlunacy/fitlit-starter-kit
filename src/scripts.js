@@ -18,6 +18,9 @@ const weeklySleepCanvas = document.getElementById('weeklySleepChart');
 const latestDaySleepCanvas = document.getElementById('latestDaySleepChart');
 const averageSleepCanvas = document.getElementById('averageSleepChart');
 const weeklySSMCanvas = document.getElementById('weeklySSMChart');
+const lifetimeMilesCanvas = document.getElementById('lifetimeMilesChart');
+const stepsComparisonCanvas = document.getElementById('stepsComparisonChart');
+const comparisonCanvas = document.getElementById('comparisonChart');
 
 $(document).ready(function() {
 
@@ -32,7 +35,6 @@ var $draggable = $('.draggable').draggabilly({
   // options...
 })
 
-
 var $grid = $('.grid').packery({
   itemSelector: '.grid-item',
   // columnWidth helps with drop positioning
@@ -44,13 +46,16 @@ $grid.find('.grid-item').each( function( i, gridItem ) {
   var draggie = new Draggabilly( gridItem );
   // bind drag events to Packery
   $grid.packery( 'bindDraggabillyEvents', draggie );
-});
+	});
+
 
 $('.userFirstName').text(currentUser.giveName());
 $('.ouncesToday').text(currentHydrationUser.flOzOneDay('2019/09/22'))
 
-currentActivityRepo.totalWeeklySteps('2019/09/16','2019/09/22')
-currentActivityUser.increasingTrends('numSteps')
+
+currentActivityRepo.totalWeeklySteps('2019/09/16','2019/09/22');
+currentActivityUser.increasingTrends('numSteps');
+
 let stepGoalChart = new Chart(stepGoalCanvas, {
     type: 'bar',
     data: {
@@ -206,7 +211,7 @@ let weeklySleepChart = new Chart(weeklySleepCanvas, {
         ]
     },
     options: {
-    	responsive: false,
+    	responsive: false, 
         scales: {
             yAxes: [  {
                     id: 'Sleep Hours',
@@ -295,6 +300,104 @@ let weeklySSMChart = new Chart(weeklySSMCanvas, {
     }
 });
 
+let lifetimeMilesChart = new Chart(lifetimeMilesCanvas, {
+    type: 'bar',
+    data: {
+        labels: ['Your Lifetime Miles', 'Appalachian Trail', 'Continental Divide Trail', 'American Discovery Trail'],
+        datasets: [{
+            label: 'Lifetime Miles',
+            data: [currentActivityUser.lifeTimeTotalMiles(), 2189.1, 3100, 5000],
+            backgroundColor: [
+                'rgba(50, 205, 50, .25)',
+                'rgba(255, 255, 0, .25)',
+                'rgba(255, 69, 0, .25)',
+                'rgba(255, 99, 132, .25)'
+            ],
+            borderColor: [
+                'rgba(34, 139, 34, 1)',
+                'rgba(255, 255, 0, 1)',
+                'rgba(255, 69, 0, 1)',
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    	responsive: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+let stepsComparisonChart = new Chart(stepsComparisonCanvas, {
+    type: 'pie',
+    data: {
+        labels: ['Your Steps', 'Users\' Avg. Steps'],
+        datasets: [{
+            label: 'Latest Step Comparison',
+            data: [currentActivityUser.statsLatestDay('2019/09/22', 'numSteps'), currentActivityRepo.usersAverage('2019/09/22', 'numSteps')],
+            backgroundColor: [
+                'rgba(50, 205, 50, .25)',
+                'rgba(255, 255, 0, .25)',                  
+            ],
+            borderColor: [
+                'rgba(34, 139, 34, 1)',
+                'rgba(255, 255, 0, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    	responsive: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+let comparisonChart = new Chart(comparisonCanvas, {
+    type: 'bar',
+    data: {
+        labels: ['Your Minutes Active', 'Users\' Avg. Minutes Active', 'Your Flights Climbed', 'Users\' Avg. Flights Climbed'],
+        datasets: [{
+            label: 'Latest Stat Comparison',
+            data: [currentActivityUser.statsLatestDay('2019/09/22', 'minutesActive'), currentActivityRepo.usersAverage('2019/09/22', 'minutesActive'), currentActivityUser.statsLatestDay('2019/09/22', 'flightsOfStairs'), currentActivityRepo.usersAverage('2019/09/22', 'flightsOfStairs')],
+            backgroundColor: [
+                'rgba(50, 205, 50, .25)',
+                'rgba(255, 255, 0, .25)',
+                'rgba(255, 69, 0, .25)',  
+                'rgba(255, 255, 0, .25)',             
+            ],
+            borderColor: [
+                'rgba(34, 139, 34, 1)',
+                'rgba(255, 255, 0, 1)',
+                'rgba(255, 69, 0, 1)',
+                'rgba(255, 255, 0, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    	responsive: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
 function stepChallengePrep() {
 	var additionalObject = {id: currentUser.id, 	steps: currentActivityUser.weeklyActivity('2019/09/16', '2019/09/22').reduce((a, b) => a + b.numSteps, 0)};
 	var completeStepsArray = currentActivityRepo.totalWeeklySteps('2019/09/16', '2019/09/22');
@@ -303,24 +406,46 @@ function stepChallengePrep() {
 	namesArray.forEach((firstname, i) => {
 		completeStepsArray[i]['name'] = firstname;
 	});
-	return completeStepsArray
+	return completeStepsArray.sort((a,b) => b.steps - a.steps)
 }
 
 function displayStepChallenge(startDate, endDate) {
 	let display = `During the Week of ${startDate.slice(5)} to ${endDate.slice(5)}: <br><br>`;
-	stepChallengePrep().forEach(obj => display += `${obj.name} had a total of ${obj.steps.toLocaleString()} steps! <br>`)
-	$('.infoDisplay').append(display)
+	stepChallengePrep().forEach((obj, i) => display += `${++i}. ${obj.name} had a total of ${obj.steps.toLocaleString()} steps! <br>`)
+	$('.activity-step-challenge').append(display)
 }
 
-displayStepChallenge('2019/09/16', '2019/09/22')
 
-});
 
-$('.profile-button').on('click', () => {
+
+
+
+
+
+
+function displayRecentActivity(dateString) {
+	$('.recent-minutes-active').append(currentActivityUser.statsLatestDay(dateString, 'minutesActive'));
+	$('.recent-steps').append(currentActivityUser.statsLatestDay(dateString, 'numSteps').toLocaleString());
+	$('.recent-distance').append(currentActivityUser.milesWalked(dateString))
+}
+
+function displayTrend(property1, property2, string1, string2) {
+	let display1 = `Your ${string1} increased for at least 3 days on: <br><br>`;
+	let display2 = `Your ${string2} increased for at least 3 days on: <br><br>`;
+	currentActivityUser.increasingTrends(property1).forEach(arr => display1 += `${arr[0].slice(5)},&nbsp;`);
+	currentActivityUser.increasingTrends(property2).forEach(arr => display2 += `${arr[0].slice(5)},&nbsp;`);
+	$('.activity-trends-steps').append(display1);
+	$('.activity-trends-stairs').append(display2);
+	console.log(display1, display2)
+}
+
+displayTrend('numSteps', 'flightsOfStairs', 'steps taken', 'flights climbed');
+
+displayStepChallenge('2019/09/16', '2019/09/22');
+displayRecentActivity('2019/09/22');
+
+  $('.profile-button').on('click', () => {
   $('.profile-info').toggleClass('hide');
-  // $('.profile-info hide').toggleClass('hide');  
+  
 });
-
-
-
 
