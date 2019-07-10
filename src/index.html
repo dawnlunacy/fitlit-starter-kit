@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.css">
-
     <title>FitLit</title>
   </head>
   <body>
@@ -40,26 +39,47 @@
       <article class= "step-goal-vs-avg grid-item">
         <img src= "../images/svg/steps.svg" class= "icon">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
-        <h3> Your Step goal is: </h3>
-        <h3> Avg User goal is: </h3>
+        <div>
+          <canvas id="stepGoalChart" width="400" height="400">
+          </canvas>
+        </div>
       </article>
-
       <article class= "hydration grid-item">
         <img src= "../images/svg/water.svg" class= "icon" id="icon-right">
-        <h3> Today you drank <span class="water-drank"></span> oz of water. </h3>
-        <h3> Avg User goal is: </h3>
+<!--         <h3> Today you drank <span class="water-drank"></span> oz of water. </h3>
+        <h3> Avg User goal is: </h3> -->
+        <div>
+          <p class="hydrationChartText">Today You Drank <span class="ouncesToday"></span> ounces of water!</p>
+          <canvas id="hydrationWeekChart" width="400" height="400">
+          </canvas>
+        </div>
       </article>
 
       <article class= "sleep grid-item">
         <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
         <h3> Last night you slept: </h3>
         <h3> Your sleep quality was: </h3>
+        <div>
+          <canvas id="latestDaySleepChart" width="400" height="400">
+          </canvas>
+        </div>  
       </article>
 
       <article class= "sleep-avg grid-item">
         <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
         <h3> Your all time average of hours slept is: </h3>
         <h3> You all time average quality of sleep is:  </h3>
+        <div>
+          <canvas id="averageSleepChart" width="400" height="400">
+          </canvas>
+        </div>
+      </article>
+
+      <article class= "weekly-sleep grid-item">
+        <div>
+          <canvas id="weeklySleepChart" width="400" height="400">
+          </canvas>
+        </div>
       </article>
 
       <article class= "activity-recent grid-item">
@@ -71,63 +91,56 @@
 
       <article class= "activity-comparison-recent  grid-item grid-item--width2">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <div>
+          <canvas id="stepsComparisonChart" width="400" height="400">
+          </canvas>
+        </div>
       </article>
 
       <article class= "activity-comparison-recent grid-item grid-item--width2">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <div>
+          <canvas id="comparisonChart" width="400" height="400">
+          </canvas>
+        </div>
       </article>
 
       <article class= "activity-weekly grid-item grid-item--width2">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <div>
+          <canvas id="weeklySSMChart" width="400" height="400">
+          </canvas>
+        </div>
       </article>
 
-      <article class= "activity-step-challenge grid-item grid-item--width2">
+      <article class= "activity-step-challenge grid-item grid-item--height2">
         <img src= "../images/svg/steps.svg" class= "icon">
-        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">  
       </article>
 
        <article class= "activity-trends-steps grid-item">
         <img src= "../images/svg/steps.svg" class= "icon">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <span class='.step-trend'></span>
       </article>
 
-      <article class= "activity-trends-stairs grid-item">
+      <article class= "activity-trends-stairs grid-item grid-item-height2">
         <img src= "../images/svg/steps.svg" class= "icon">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <span class='.stair-trend'></span>
       </article>
 
-      <article class= "activity-life-time-miles grid-item">
+      <article class= "activity-life-time-miles grid-item grid-item-width2">
         <img src= "../images/svg/trail.svg" class= "icon">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <div>
+          <canvas id="lifetimeMilesChart" width="400" height="400">
+          </canvas>
+        </div>
       </article>
+
+     
     </section>
-    <output class= "infoDisplay">
-      <div>
-        <canvas id="stepGoalChart" width="400" height="400">
-        </canvas>
-      </div>
-      <div>
-        <p class="hydrationChartText">Today You Drank <span class="ouncesToday"></span> ounces of water!</p>
-        <canvas id="hydrationWeekChart" width="400" height="400">
-        </canvas>
-      </div>
-      <div>
-        <canvas id="averageSleepChart" width="400" height="400">
-        </canvas>
-      </div>
-      <div>
-        <canvas id="latestDaySleepChart" width="400" height="400">
-        </canvas>
-      </div>
-      <div>
-        <canvas id="weeklySleepChart" width="400" height="400">
-        </canvas>
-      </div>
-      <div>
-        <canvas id="weeklySSMChart" width="400" height="400">
-        </canvas>
-      </div>
-    </output>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script type="text/javascript" src="../data/users.js"></script>
