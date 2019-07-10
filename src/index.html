@@ -59,7 +59,6 @@
         <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
         <h3> Last night you slept: </h3>
         <h3> Your sleep quality was: </h3>
-
         <div>
           <canvas id="latestDaySleepChart" width="400" height="400">
           </canvas>
@@ -69,9 +68,16 @@
       <article class= "sleep-avg grid-item">
         <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
         <h3> Your all time average of hours slept is: </h3>
-        <h3> Your all time average quality of sleep is:  </h3>
+        <h3> You all time average quality of sleep is:  </h3>
         <div>
           <canvas id="averageSleepChart" width="400" height="400">
+          </canvas>
+        </div>
+      </article>
+
+      <article class= "weekly-sleep grid-item">
+        <div>
+          <canvas id="weeklySleepChart" width="400" height="400">
           </canvas>
         </div>
       </article>
@@ -132,10 +138,8 @@
           </canvas>
         </div>
       </article>
-      <div>
-        <canvas id="weeklySleepChart" width="400" height="400">
-        </canvas>
-      </div>
+
+     
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>

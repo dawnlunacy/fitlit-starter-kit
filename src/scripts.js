@@ -211,7 +211,7 @@ let weeklySleepChart = new Chart(weeklySleepCanvas, {
         ]
     },
     options: {
-    	responsive: false,
+    	responsive: false, 
         scales: {
             yAxes: [  {
                     id: 'Sleep Hours',
@@ -355,11 +355,11 @@ let stepsComparisonChart = new Chart(stepsComparisonCanvas, {
     options: {
     	responsive: false,
         scales: {
-            // yAxes: [{
-            //     ticks: {
-            //         beginAtZero: true
-            //     }
-            // }]
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
         }
     }
 });
@@ -435,6 +435,5 @@ displayTrend('numSteps', 'flightsOfStairs', 'steps taken', 'flights climbed');
 
 displayStepChallenge('2019/09/16', '2019/09/22');
 displayRecentActivity('2019/09/22');
-
 
 });
