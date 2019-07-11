@@ -102,6 +102,7 @@ This is a collaboration from:
 
 ## Demo
     ![FitLit Demo](https://github.com/dawnlunacy/fitlit-starter-kit/blob/master/images/demo/FitLit-demo.gif)
+
     
     
 

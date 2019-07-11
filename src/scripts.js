@@ -8,19 +8,19 @@ const currentHydrationUser = new HydrationUser([...hydrationUser]);
 const currentSleepRepo = new SleepRepository(sleepData, idNumber);
 const sleepUser = currentSleepRepo.findSleepUser();
 const currentSleepUser = new SleepUser([...sleepUser]);
-const currentActivityRepo = new ActivityRepository(activityData, idNumber, userData)
+const currentActivityRepo = new ActivityRepository(activityData, idNumber, userData);
 const activityUser = currentActivityRepo.findActivityUser();
-const currentActivityUser = new ActivityUser([...activityUser], currentUser)
+const currentActivityUser = new ActivityUser([...activityUser], currentUser);
 
-const stepGoalCanvas = document.getElementById('stepGoalChart');
-const hydrationWeekCanvas = document.getElementById('hydrationWeekChart');
-const weeklySleepCanvas = document.getElementById('weeklySleepChart');
-const latestDaySleepCanvas = document.getElementById('latestDaySleepChart');
-const averageSleepCanvas = document.getElementById('averageSleepChart');
-const weeklySSMCanvas = document.getElementById('weeklySSMChart');
-const lifetimeMilesCanvas = document.getElementById('lifetimeMilesChart');
-const stepsComparisonCanvas = document.getElementById('stepsComparisonChart');
-const comparisonCanvas = document.getElementById('comparisonChart');
+const $stepGoalCanvas = $('#step-goal-chart');
+const $hydrationWeekCanvas = $('#hydration-week-chart');
+const $latestDaySleepCanvas = $('#latest-day-sleep-chart');
+const $averageSleepCanvas = $('#average-sleep-chart');
+const $weeklySleepCanvas = $('#weekly-sleep-chart');
+const $stepsComparisonCanvas = $('#steps-comparison-chart');
+const $comparisonCanvas = $('#comparison-chart');
+const $weeklySSMCanvas = $('#weekly-ssm-chart');
+const $lifetimeMilesCanvas = $('#lifetime-miles-chart');
 
 $(document).ready(function() {
 
@@ -32,22 +32,17 @@ $(document).ready(function() {
 });
 
 var $draggable = $('.draggable').draggabilly({
-  // options...
-})
+});
 
 var $grid = $('.grid').packery({
   itemSelector: '.grid-item',
-  // columnWidth helps with drop positioning
   columnWidth: 100
 });
 
-// make all grid-items draggable
 $grid.find('.grid-item').each( function( i, gridItem ) {
   var draggie = new Draggabilly( gridItem );
-  // bind drag events to Packery
   $grid.packery( 'bindDraggabillyEvents', draggie );
-	});
-
+});
 
 $('.userFirstName').text(currentUser.giveName());
 $('.ouncesToday').text(currentHydrationUser.flOzOneDay('2019/09/22'))
@@ -60,11 +55,7 @@ $('.profile-email').text(currentUser.giveEmail());
 $('.profile-strideLength').text(currentUser.giveStrideLength());
 $('.profile-dailyStepGoal').text(currentUser.giveDailyStepGoal());
 
-
-currentActivityRepo.totalWeeklySteps('2019/09/16','2019/09/22');
-currentActivityUser.increasingTrends('numSteps');
-
-let stepGoalChart = new Chart(stepGoalCanvas, {
+let stepGoalChart = new Chart($stepGoalCanvas, {
     type: 'bar',
     data: {
         labels: ['Your Step Goal', 'Average Step Goal'],
@@ -94,7 +85,7 @@ let stepGoalChart = new Chart(stepGoalCanvas, {
     }
 });
 
-let hydrationWeekChart = new Chart(hydrationWeekCanvas, {
+let hydrationWeekChart = new Chart($hydrationWeekCanvas, {
     type: 'line',
     data: {
         labels: currentHydrationUser.flOzOneWeek().map(day=> day[0].slice(5)),
@@ -118,7 +109,7 @@ let hydrationWeekChart = new Chart(hydrationWeekCanvas, {
     }
 });
 
-let latestDaySleepChart = new Chart(latestDaySleepCanvas, {
+let latestDaySleepChart = new Chart($latestDaySleepCanvas, {
     type: 'bar',
     data: {
         labels: ['Sleep Hours 09/22', 'Sleep Quality 09/22'],
@@ -148,7 +139,7 @@ let latestDaySleepChart = new Chart(latestDaySleepCanvas, {
     }
 });
 
-let averageSleepChart = new Chart(averageSleepCanvas, {
+let averageSleepChart = new Chart($averageSleepCanvas, {
     type: 'bar',
     data: {
         labels: ['Average Sleep Hours', 'Average Sleep Quality'],
@@ -178,7 +169,7 @@ let averageSleepChart = new Chart(averageSleepCanvas, {
     }
 });
 
-let weeklySleepChart = new Chart(weeklySleepCanvas, {
+let weeklySleepChart = new Chart($weeklySleepCanvas, {
     type: 'bar',
     data: {
         labels: currentSleepUser.sleepPropertyOneWeek('2019/09/16', '2019/09/22', 'hoursSlept').map(day => day[0].slice(5)),
@@ -247,7 +238,7 @@ let weeklySleepChart = new Chart(weeklySleepCanvas, {
     }
 });
 
-let weeklySSMChart = new Chart(weeklySSMCanvas, {
+let weeklySSMChart = new Chart($weeklySSMCanvas, {
     type: 'bar',
     data: {
         labels: currentActivityUser.weeklyActivity('2019/09/16', '2019/09/22').map(day => day.date.slice(5)),
@@ -308,7 +299,7 @@ let weeklySSMChart = new Chart(weeklySSMCanvas, {
     }
 });
 
-let lifetimeMilesChart = new Chart(lifetimeMilesCanvas, {
+let lifetimeMilesChart = new Chart($lifetimeMilesCanvas, {
     type: 'bar',
     data: {
         labels: ['Your Lifetime Miles', 'Appalachian Trail', 'Continental Divide Trail', 'American Discovery Trail'],
@@ -342,7 +333,7 @@ let lifetimeMilesChart = new Chart(lifetimeMilesCanvas, {
     }
 });
 
-let stepsComparisonChart = new Chart(stepsComparisonCanvas, {
+let stepsComparisonChart = new Chart($stepsComparisonCanvas, {
     type: 'pie',
     data: {
         labels: ['Your Steps', 'Users\' Avg. Steps'],
@@ -372,7 +363,7 @@ let stepsComparisonChart = new Chart(stepsComparisonCanvas, {
     }
 });
 
-let comparisonChart = new Chart(comparisonCanvas, {
+let comparisonChart = new Chart($comparisonCanvas, {
     type: 'bar',
     data: {
         labels: ['Your Minutes Active', 'Users\' Avg. Minutes Active', 'Your Flights Climbed', 'Users\' Avg. Flights Climbed'],
@@ -423,14 +414,6 @@ function displayStepChallenge(startDate, endDate) {
 	$('.activity-step-challenge').append(display)
 }
 
-
-
-
-
-
-
-
-
 function displayRecentActivity(dateString) {
 	$('.recent-minutes-active').append(currentActivityUser.statsLatestDay(dateString, 'minutesActive'));
 	$('.recent-steps').append(currentActivityUser.statsLatestDay(dateString, 'numSteps').toLocaleString());
@@ -448,10 +431,6 @@ function displayTrend(property1, property2, string1, string2) {
 }
 
 displayTrend('numSteps', 'flightsOfStairs', 'steps taken', 'flights climbed');
-
 displayStepChallenge('2019/09/16', '2019/09/22');
 displayRecentActivity('2019/09/22');
-
 });
-
-
