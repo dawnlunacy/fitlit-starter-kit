@@ -14,7 +14,7 @@ This is a collaboration from:
 * Follow the specification below to make a working application
 * Implement ES6 classes that communicate to each other as needed
 * Write modular, reusable code that follows SRP (Single Responsibility Principle)
-* mplement a robust testing suite using TDD
+* Implement a robust testing suite using TDD
 * Use object and array prototype methods to perform data manipulation
 * Display information on the page while maintaining ability to test class properties and methods
 * Create a data dashboard that is easy to use and displays information in a clear way
@@ -101,7 +101,8 @@ This is a collaboration from:
 * This is also the first project at Turing where a prompt for the UI/UX design is not provided. We were allowed the creative freedom to design this. The DOM does not represent the full depth of functionality found inside our code. 
 
 ## Demo
-    ![FitLit Demo](https://github.com/dawnlunacy/fitlit-starter-kit/blob/master/images/demo/FitLit-demo.gif)
+
+   ![FitLit Demo](https://github.com/dawnlunacy/fitlit-starter-kit/blob/master/images/demo/FitLit-demo.gif)
 
     
     
