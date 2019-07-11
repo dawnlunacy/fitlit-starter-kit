@@ -1,29 +1,38 @@
 # FitLit Starter Kit
 
-The details of this project are outlined in [this project spec](http://frontend.turing.io/projects/fitlit.html).
 This is the first partner project of Mod Two at Turing School Of Software and Design located in Denver, Colorado. 
-Timeline for the project to be completed it one week. 
+Timeline for the project to be completed is one week.  The details of this project are outlined in [this project spec](http://frontend.turing.io/projects/fitlit.html).
 
-## Setup
+This is a collaboration from:
+* Lacy Rudd  [github account](https://github.com/dawnlunacy)
+*David A. Gitlen [github account](https://github.com/davidagitlen)
 
-1. Within your group, decide on one person to have the project repository (repo) on their GitHub account. Then, that person should fork this repo - on the top right corner of this page, click the **Fork** button.
-1. Both memebers of the group should clone down the _forked_ repo. Since you don't want to name your project "activity-tracker-starter", you can use an optional argument when you run git clone (you replace the [...] with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Once you have cloned the repo, change into the directory and install the project dependencies. Run `npm install` to install project dependencies.
-1. Run `open src/index.html` in the terminal to see the HTML page (you should see some boilerplate HTML displayed on the page)
-1. Make sure both members of your team are collaborators on the forked repo.
+(Github Pages Link)()
+(Github Repository Link)(https://github.com/dawnlunacy/fitlit-starter-kit/)
+## Summary
+
+1. The learning goals and objectives for this project are as follows: 
+* Follow the specification below to make a working application
+* Implement ES6 classes that communicate to each other as needed
+* Write modular, reusable code that follows SRP (Single Responsibility Principle)
+* mplement a robust testing suite using TDD
+* Use object and array prototype methods to perform data manipulation
+* Display information on the page while maintaining ability to test class properties and methods
+* Create a data dashboard that is easy to use and displays information in a clear way
+
+* In this project, you will be given data from an activity tracker for many users over many days. Think of something like Fitbit. Fitbit devices log data and present it on a dashboard for their users. Your goal is to present a useful dashboard for a user to view and see their latest activity data, goals, and milestones.
 
 ## Testing
 
-There is no boilerplate for testing in this starter-kit repo. You will need to set this up yourself. However, if you ran `npm install`, then the tooling you need to start testing is already installed (`mocha` and `chai`).
+1. This project implements Test Driven Development written by the collaborators. We used the `mocha` and `chai` libraries to complete testing.
 
 ## Linting Your Code
 
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit, but that's ok - the linter is still running successfully.
-
-Your linter will look only at the JavaScript files you have within the `src` and the `test` directories.
+1. This project implements the use of a linter. 
 
 ## Data Model
 
+1. This project is the first project through the Turing Front End Engineering Program to implement large data files. Below is a preview of how they are set up.
 **Users**
 
 ```
@@ -82,3 +91,20 @@ Your linter will look only at the JavaScript files you have within the `src` and
   ...more sleep data
 ]
 ```
+
+## Packages
+
+1. FitLit uses [Packery](https://packery.metafizzy.co/) to bring to the user a masonry layout of data. 
+1. FitLit also uses [Dragabilly](https://draggabilly.desandro.com/) to allow the user a draggable interface to customize their DOM experience. 
+1. To display the data on graphs FitLit implements [charts.js](https://www.chartjs.org/).
+
+## User-Interface 
+1. This is also the first project at Turing where a prompt for the UI/UX design is not provided. We were allowed the creative freedom to design this. The DOM does not represent the full depth of functionality found inside our code. 
+
+## Demo
+    [FitLit Demo](../images/demo/FitLit-demo.gif)
+    
+    
+
+
+

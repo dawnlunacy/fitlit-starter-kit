@@ -70,10 +70,10 @@ header button {
 .profile-info {
   background-color: #2B2B2B;
   color: #FFFFFF;
-  font-size:25px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
-  width:100%;
+  width: 100%;
 }
 
 .hide {
@@ -81,10 +81,10 @@ header button {
 }
 
 .icon {
-  height:50px;
-  width:50px;
-  padding:10px;
-  display:inline-block;
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  display: inline-block;
   margin: 10px auto 0px auto;
 }
 
