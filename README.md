@@ -5,7 +5,7 @@ Timeline for the project to be completed is one week.  The details of this proje
 
 This is a collaboration from:
 * Lacy Rudd  [github account](https://github.com/dawnlunacy) <br>
-*David A. Gitlen [github account](https://github.com/davidagitlen)<br>
+* David A. Gitlen [github account](https://github.com/davidagitlen)<br>
 
 (Github Repository Link)(https://github.com/dawnlunacy/fitlit-starter-kit/)
 ## Summary
