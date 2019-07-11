@@ -10,7 +10,7 @@ class UserRepository {
 
   findAverageStepGoal() {
     return Math.floor(this.dataset.reduce((a, b) =>
-      a + b.dailyStepGoal, 0)/this.dataset.length);
+      a + b.dailyStepGoal, 0) / this.dataset.length);
   }
 
 }

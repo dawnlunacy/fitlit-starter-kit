@@ -1,5 +1,5 @@
 class User {
-  constructor(obj){
+  constructor(obj) {
     this.id = obj.id
     this.name = obj.name;
     this.address = obj.address;
@@ -15,6 +15,6 @@ class User {
 
 }
 
-  if (typeof module !== 'undefined') {
+if (typeof module !== 'undefined') {
   module.exports = User;
 }
