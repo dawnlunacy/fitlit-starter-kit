@@ -1,17 +1,17 @@
-class HydrationRepository{
-	constructor(dataset, id){
-		this.dataset = dataset;
-		this.id = id;
-		this.userHydration = this.findHydrationUser();
-	}
+class HydrationRepository {
+  constructor(dataset, id) {
+    this.dataset = dataset;
+    this.id = id;
+    this.userHydration = this.findHydrationUser();
+  }
 
-	findHydrationUser() {
-		return this.dataset.filter(user => user.userID === this.id)
-	}
+  findHydrationUser() {
+    return this.dataset.filter(user => user.userID === this.id)
+  }
 
-	findHydrationAverage() {
-		return Math.floor(this.userHydration.reduce((a,b) => a + b.numOunces, 0)/this.userHydration.length)
-	}
+  findHydrationAverage() {
+    return Math.floor(this.userHydration.reduce((a, b) => a + b.numOunces, 0) / this.userHydration.length)
+  }
 
 }
 
