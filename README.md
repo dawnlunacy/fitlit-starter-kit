@@ -7,7 +7,7 @@ This is a collaboration from:
 * Lacy Rudd  [github account](https://github.com/dawnlunacy) <br>
 * David A. Gitlen [github account](https://github.com/davidagitlen)<br>
 
-(Github Repository Link)(https://github.com/dawnlunacy/fitlit-starter-kit/)
+[Github Repository Link](https://github.com/dawnlunacy/fitlit-starter-kit/)
 ## Summary
 
 * The learning goals and objectives for this project are as follows: 
