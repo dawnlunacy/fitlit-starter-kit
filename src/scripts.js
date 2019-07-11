@@ -48,7 +48,12 @@ $('.userFirstName').text(currentUser.giveName());
 $('.ouncesToday').text(currentHydrationUser.flOzOneDay('2019/09/22'))
 $('.profile-button').on('click', () => {
 $('.profile-info').toggleClass('hide');
-		});
+});
+$('.profile-name').text(currentUser.giveFullName());
+$('.profile-address').text(currentUser.giveAddress());
+$('.profile-email').text(currentUser.giveEmail());
+$('.profile-strideLength').text(currentUser.giveStrideLength());
+$('.profile-dailyStepGoal').text(currentUser.giveDailyStepGoal());
 
 let stepGoalChart = new Chart($stepGoalCanvas, {
     type: 'bar',

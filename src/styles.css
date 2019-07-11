@@ -3,7 +3,7 @@
   }
 
 body {
-  background-color:#000000;
+  background-color: #000000;
   font-family: "sans-serif";
 }
 
@@ -14,7 +14,7 @@ header {
       rgba(0, 0, 0, 0.5)
     ),
     url(../images/stock-photo-1-copy-3.jpeg);
-  display:grid;
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
   "logo main name"
@@ -24,19 +24,19 @@ header {
 h1 {
   color: #FFFFFF;
   font-size: 75px;
-  text-align: center;
   grid-area: main;
-  margin-top:15%;
+  margin-top: 15%;
+  text-align: center;
 }
 
 h2 {
   color: #FFFFFF;
   font-size: 30px;
-  text-align: center;
   grid-area: name;
-  margin-top: 15%;
-  margin-left:25%;
   margin-bottom: 0;
+  margin-left:25%;
+  margin-top: 15%;
+  text-align: center;
 }
 
 header button {
@@ -45,35 +45,34 @@ header button {
   float: right;
   font-family: sans-serif;
   font-size: 22px;
-  margin: 12px;
-  text-align: center;
   grid-area: profile;
-  width:33%;
-  height:50%;
+  height: 50%;
   margin-left: 45%;
   margin-top: 5%;
-  ;
+  margin: 12px;
+  text-align: center;
+  width: 33%;
 }
 
 .fitlit-svg {
-  height: 200px;
-  width: 200px;
-  margin: 10px 10px 10px 65px;
   grid-area: logo;
+  height: 200px;
+  margin: 10px 10px 10px 65px;
+  width: 200px;
 }
 
 .button-active {
-  color: green;
   background-color: #535353;
+  color: green;
 }
 
 .profile-info {
   background-color: #2B2B2B;
   color: #FFFFFF;
-  font-size:25px;
   display: flex;
+  font-size: 25px;
   justify-content: center;
-  width:100%;
+  width: 100%;
 }
 
 .hide {
@@ -81,20 +80,24 @@ header button {
 }
 
 .icon {
-  height:50px;
-  width:50px;
-  padding:10px;
-  display:inline-block;
+  display: inline-block;
+  height: 50px;
   margin: 10px auto 0px auto;
+  padding: 10px;
+  width: 50px;
 }
 
 #icon-right {
-  float:right;
+  float: right;
+}
+
+#icon-left {
+  float: left;
 }
 
 .grid {
   background-color: #191919;
-  width:100%;
+  width: 100%;
 }
 
 /* clear fix */
@@ -106,12 +109,12 @@ header button {
 }
 
 .grid-item {
-  float: left;
-  width: 200px;
-  height: max-content;
   background-color: #FFFFFF;
-  margin: 50px 0px 0px 150px;
   border-radius: 10px;
+  float: left;
+  height: max-content;
+  margin: 50px 0px 0px 150px;
+  width: 200px;
 }
 
 .gutter-sizer {
@@ -119,17 +122,17 @@ header button {
 }
 
 .grid-item--width2 {
-  width: 400px;
-  height: max-content;
   background-color: #FFFFFF;
   border: 2px solid;
+  height: max-content;
+  width: 400px;
 }
 
 .grid-item--height2 {
-  width:400px;
-  height: 250px;
   background-color: #FFFFFF;
   border: 2px solid;
+  height: 250px;
+  width:400px;
 }
 
 .grid-item: hover {
@@ -217,6 +220,6 @@ z-index: 2; /* above other draggies */
 
 article {
   overflow-wrap: break-word;
-  text-align: center;
   padding: 5px;
+  text-align: center;
 }
