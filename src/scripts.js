@@ -8,9 +8,9 @@ const currentHydrationUser = new HydrationUser([...hydrationUser]);
 const currentSleepRepo = new SleepRepository(sleepData, idNumber);
 const sleepUser = currentSleepRepo.findSleepUser();
 const currentSleepUser = new SleepUser([...sleepUser]);
-const currentActivityRepo = new ActivityRepository(activityData, idNumber, userData)
+const currentActivityRepo = new ActivityRepository(activityData, idNumber, userData);
 const activityUser = currentActivityRepo.findActivityUser();
-const currentActivityUser = new ActivityUser([...activityUser], currentUser)
+const currentActivityUser = new ActivityUser([...activityUser], currentUser);
 
 const $stepGoalCanvas = $('#step-goal-chart');
 const $hydrationWeekCanvas = $('#hydration-week-chart');
@@ -32,7 +32,7 @@ $(document).ready(function() {
 });
 
 var $draggable = $('.draggable').draggabilly({
-})
+});
 
 var $grid = $('.grid').packery({
   itemSelector: '.grid-item',
@@ -42,14 +42,12 @@ var $grid = $('.grid').packery({
 $grid.find('.grid-item').each( function( i, gridItem ) {
   var draggie = new Draggabilly( gridItem );
   $grid.packery( 'bindDraggabillyEvents', draggie );
-	});
-
+});
 
 $('.userFirstName').text(currentUser.giveName());
 $('.ouncesToday').text(currentHydrationUser.flOzOneDay('2019/09/22'))
 $('.profile-button').on('click', () => {
 $('.profile-info').toggleClass('hide');
-
 		});
 
 let stepGoalChart = new Chart($stepGoalCanvas, {
@@ -428,8 +426,6 @@ function displayTrend(property1, property2, string1, string2) {
 }
 
 displayTrend('numSteps', 'flightsOfStairs', 'steps taken', 'flights climbed');
-
 displayStepChallenge('2019/09/16', '2019/09/22');
 displayRecentActivity('2019/09/22');
-
 });
