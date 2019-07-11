@@ -28,7 +28,7 @@ $(document).ready(function() {
   itemSelector: '.grid-item',
   columnWidth: 50,
   rowHeight: 40,
-  gutter: 10,
+  gutter: 7,
 });
 
 var $draggable = $('.draggable').draggabilly({
@@ -51,7 +51,9 @@ $grid.find('.grid-item').each( function( i, gridItem ) {
 
 $('.userFirstName').text(currentUser.giveName());
 $('.ouncesToday').text(currentHydrationUser.flOzOneDay('2019/09/22'))
-
+$('.profile-button').on('click', () => {
+$('.profile-info').toggleClass('hide');
+});
 
 currentActivityRepo.totalWeeklySteps('2019/09/16','2019/09/22');
 currentActivityUser.increasingTrends('numSteps');
@@ -444,8 +446,6 @@ displayTrend('numSteps', 'flightsOfStairs', 'steps taken', 'flights climbed');
 displayStepChallenge('2019/09/16', '2019/09/22');
 displayRecentActivity('2019/09/22');
 
-  $('.profile-button').on('click', () => {
-  $('.profile-info').toggleClass('hide');
-  
 });
+
 
