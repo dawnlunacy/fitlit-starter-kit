@@ -13,6 +13,28 @@ class User {
     return this.name.split(' ')[0];
   }
 
+  giveFullName() {
+    return this.name;
+  }
+
+  giveAddress() {
+    return this.address;
+  }
+
+  giveEmail() {
+    return this.email;
+  }
+
+  giveStrideLength() {
+    return this.strideLength;
+  }
+
+  giveDailyStepGoal() {
+    return this.dailyStepGoal;
+  }
+
+
+
 }
 
   if (typeof module !== 'undefined') {

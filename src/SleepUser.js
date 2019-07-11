@@ -1,6 +1,7 @@
 class SleepUser {
 	constructor(array) {
 		this.array = array;
+		
 	}
 
 	sleepPropertyOneDay(dateString, property) {

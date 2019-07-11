@@ -1,6 +1,8 @@
 # FitLit Starter Kit
 
-The details of this project are outline in [this project spec](http://frontend.turing.io/projects/fitlit.html).
+The details of this project are outlined in [this project spec](http://frontend.turing.io/projects/fitlit.html).
+This is the first partner project of Mod Two at Turing School Of Software and Design located in Denver, Colorado. 
+Timeline for the project to be completed it one week. 
 
 ## Setup
 

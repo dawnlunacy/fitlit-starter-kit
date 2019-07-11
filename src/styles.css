@@ -92,6 +92,10 @@ header button {
   float:right;
 }
 
+#icon-left {
+  float:left;
+}
+
 .grid {
   background-color: #191919;
   width:100%;

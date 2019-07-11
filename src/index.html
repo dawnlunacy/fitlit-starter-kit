@@ -16,10 +16,11 @@
     <section class= "profile-info hide">
       <div class = "profile-container">
         <ul>
-          <li> <span class= "profile-name"> Name: </span></li>
-          <li> <span class= "profile-address"> Address: </span></li>
-          <li> <span class= "profile-strideLength"> Stride Length: </span></li>
-          <li> <span class= "profile-dailyStepGoal"> Daily Step Goal: </span></li>
+          <li> Name: <span class= "profile-name">  </span></li>
+          <li>  Address: <span class= "profile-address"> </span></li>
+          <li>  Email: <span class= "profile-email"> </span></li>
+          <li> Stride Length: <span class= "profile-strideLength"> </span></li>
+          <li> Daily Step Goal: <span class= "profile-dailyStepGoal">  </span></li>
         </ul>
       </div>
     </section>
@@ -28,8 +29,9 @@
       <article class="gutter-sizer"></article>
 
       <article class= "step-goal-vs-avg grid-item">
-        <img src= "../images/svg/steps.svg" class= "icon">
+        <img src= "../images/svg/steps.svg" class= "icon" id="icon-left">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <h3> Your Step Goal Vs. Average User <h3>
         <div>
           <canvas id="stepGoalChart" width="400" height="400">
           </canvas>
@@ -37,10 +39,8 @@
       </article>
       <article class= "hydration grid-item">
         <img src= "../images/svg/water.svg" class= "icon" id="icon-right">
-<!--         <h3> Today you drank <span class="water-drank"></span> oz of water. </h3>
-        <h3> Avg User goal is: </h3> -->
         <div>
-          <p class="hydrationChartText">Today You Drank <span class="ouncesToday"></span> ounces of water!</p>
+          <h3 class="hydrationChartText">Today You Drank <span class="ouncesToday"></span> ounces of water!</h3>
           <canvas id="hydrationWeekChart" width="400" height="400">
           </canvas>
         </div>
@@ -48,8 +48,7 @@
 
       <article class= "sleep grid-item">
         <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
-        <h3> Last night you slept: </h3>
-        <h3> Your sleep quality was: </h3>
+        <h3> Last Night's Sleep Data </h3>
         <div>
           <canvas id="latestDaySleepChart" width="400" height="400">
           </canvas>
@@ -58,8 +57,7 @@
 
       <article class= "sleep-avg grid-item">
         <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
-        <h3> Your all time average of hours slept is: </h3>
-        <h3> You all time average quality of sleep is:  </h3>
+        <h3>Your All Time Average of Sleep Hours & Quality</h3>
         <div>
           <canvas id="averageSleepChart" width="400" height="400">
           </canvas>
@@ -67,6 +65,8 @@
       </article>
 
       <article class= "weekly-sleep grid-item">
+        <h3> Weekly Sleep Data </h3>
+        <img src= "../images/svg/sleep.svg" class= "icon" id="icon-right">
         <div>
           <canvas id="weeklySleepChart" width="400" height="400">
           </canvas>
@@ -75,6 +75,7 @@
 
       <article class= "activity-recent grid-item">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <h3> Recent Activity </h3>
         <h3> You most recently were active for <span class= "recent-minutes-active"> </span> minutes.</h3>
         <h3> You most recently took <span class= "recent-steps"> </span> steps.</h3>
         <h3> You most recently walked <span class= "recent-distance"> </span> miles.</h3>
@@ -82,6 +83,7 @@
 
       <article class= "activity-comparison-recent  grid-item grid-item--width2">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <h3> Step Comparison </h3>
         <div>
           <canvas id="stepsComparisonChart" width="400" height="400">
           </canvas>
@@ -90,6 +92,7 @@
 
       <article class= "activity-comparison-recent grid-item grid-item--width2">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <h3> Your Activity Vs. User Averages <h3>
         <div>
           <canvas id="comparisonChart" width="400" height="400">
           </canvas>
@@ -98,6 +101,7 @@
 
       <article class= "activity-weekly grid-item grid-item--width2">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <h3> Weekly Activity </h3>
         <div>
           <canvas id="weeklySSMChart" width="400" height="400">
           </canvas>
@@ -105,25 +109,29 @@
       </article>
 
       <article class= "activity-step-challenge grid-item grid-item--height2">
-        <img src= "../images/svg/steps.svg" class= "icon">
+        <h3> Step Challenge Between You and Friends </h3>
+        <img src= "../images/svg/steps.svg" class= "icon" id="icon-left">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">  
       </article>
 
        <article class= "activity-trends-steps grid-item">
-        <img src= "../images/svg/steps.svg" class= "icon">
+        <h3>  Step Trend <h3>
+        <img src= "../images/svg/steps.svg" class= "icon" id="icon-left">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
         <span class='.step-trend'></span>
       </article>
 
       <article class= "activity-trends-stairs grid-item grid-item-height2">
-        <img src= "../images/svg/steps.svg" class= "icon">
+        <h3> Stairs Climbed Trend <h3>
+        <img src= "../images/svg/steps.svg" class= "icon" id="icon-left">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
         <span class='.stair-trend'></span>
       </article>
 
       <article class= "activity-life-time-miles grid-item grid-item-width2">
-        <img src= "../images/svg/trail.svg" class= "icon">
+        <img src= "../images/svg/trail.svg" class= "icon" id="icon-left">
         <img src= "../images/svg/activity.svg" class= "icon" id="icon-right">
+        <h3> Total LifeTime Miles </h3>
         <div>
           <canvas id="lifetimeMilesChart" width="400" height="400">
           </canvas>
