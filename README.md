@@ -102,7 +102,7 @@ This is a collaboration from:
 1. This is also the first project at Turing where a prompt for the UI/UX design is not provided. We were allowed the creative freedom to design this. The DOM does not represent the full depth of functionality found inside our code. 
 
 ## Demo
-    [FitLit Demo](../images/demo/FitLit-demo.gif)
+    ![FitLit Demo](../images/demo/FitLit-demo.gif)
     
     
 
