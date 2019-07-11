@@ -32,6 +32,7 @@ This is a collaboration from:
 ## Data Model
 
 * This project is the first project through the Turing Front End Engineering Program to implement large data files. Below is a preview of how they are set up.
+
 **Users**
 
 ```
