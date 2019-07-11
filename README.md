@@ -4,14 +4,13 @@ This is the first partner project of Mod Two at Turing School Of Software and De
 Timeline for the project to be completed is one week.  The details of this project are outlined in [this project spec](http://frontend.turing.io/projects/fitlit.html).
 
 This is a collaboration from:
-* Lacy Rudd  [github account](https://github.com/dawnlunacy)
-*David A. Gitlen [github account](https://github.com/davidagitlen)
+* Lacy Rudd  [github account](https://github.com/dawnlunacy) <br>
+*David A. Gitlen [github account](https://github.com/davidagitlen)<br>
 
-(Github Pages Link)()
 (Github Repository Link)(https://github.com/dawnlunacy/fitlit-starter-kit/)
 ## Summary
 
-1. The learning goals and objectives for this project are as follows: 
+* The learning goals and objectives for this project are as follows: 
 * Follow the specification below to make a working application
 * Implement ES6 classes that communicate to each other as needed
 * Write modular, reusable code that follows SRP (Single Responsibility Principle)
@@ -24,15 +23,15 @@ This is a collaboration from:
 
 ## Testing
 
-1. This project implements Test Driven Development written by the collaborators. We used the `mocha` and `chai` libraries to complete testing.
+ * This project implements Test Driven Development written by the collaborators. We used the `mocha` and `chai` libraries to complete testing.
 
 ## Linting Your Code
 
-1. This project implements the use of a linter. 
+* This project implements the use of a linter. 
 
 ## Data Model
 
-1. This project is the first project through the Turing Front End Engineering Program to implement large data files. Below is a preview of how they are set up.
+* This project is the first project through the Turing Front End Engineering Program to implement large data files. Below is a preview of how they are set up.
 **Users**
 
 ```
@@ -94,15 +93,15 @@ This is a collaboration from:
 
 ## Packages
 
-1. FitLit uses [Packery](https://packery.metafizzy.co/) to bring to the user a masonry layout of data. 
-1. FitLit also uses [Dragabilly](https://draggabilly.desandro.com/) to allow the user a draggable interface to customize their DOM experience. 
-1. To display the data on graphs FitLit implements [charts.js](https://www.chartjs.org/).
+* FitLit uses [Packery](https://packery.metafizzy.co/) to bring to the user a masonry layout of data. 
+* FitLit also uses [Dragabilly](https://draggabilly.desandro.com/) to allow the user a draggable interface to customize their DOM experience. 
+* To display the data on graphs FitLit implements [charts.js](https://www.chartjs.org/).
 
 ## User-Interface 
-1. This is also the first project at Turing where a prompt for the UI/UX design is not provided. We were allowed the creative freedom to design this. The DOM does not represent the full depth of functionality found inside our code. 
+* This is also the first project at Turing where a prompt for the UI/UX design is not provided. We were allowed the creative freedom to design this. The DOM does not represent the full depth of functionality found inside our code. 
 
 ## Demo
-    [FitLit Demo](../images/demo/FitLit-demo.gif)
+    ![FitLit Demo](https://github.com/dawnlunacy/fitlit-starter-kit/blob/master/images/demo/FitLit-demo.gif)
     
     
 
