@@ -8,42 +8,58 @@ body {
 }
 
 header {
-  min-height: 150px;
-  height: 210px;
-  width: 100%;
-  background-color: #3E3E3E;
-  margin: 0px;
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(../images/stock-photo-1-copy-3.jpeg);
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+  "logo main name"
+  "logo main profile "
 }
 
 h1 {
-  color: #0EF394;
-  font-size: 55px;
+  color: #FFFFFF;
+  font-size: 75px;
   text-align: center;
-  margin: -200px 10px 20px 10px;
-
+  grid-area: main;
+  margin-top:15%;
 }
 
 h2 {
-  color: #0EF394;
+  color: #FFFFFF;
   font-size: 30px;
-  text-align: right;
-  margin: 0px 250px 20px 5px;
+  text-align: center;
+  grid-area: name;
+  margin-top: 15%;
+  margin-left:25%;
+  margin-bottom: 0;
 }
 
 header button {
   background-color: #3E3E3E;
-  color: #0EF394;
+  color: #FFFFFF;
   float: right;
   font-family: sans-serif;
   font-size: 22px;
   margin: 12px;
-  text-align: right;
+  text-align: center;
+  grid-area: profile;
+  width:33%;
+  height:50%;
+  margin-left: 45%;
+  margin-top: 5%;
+  ;
 }
 
-header img {
+.fitlit-svg {
   height: 200px;
   width: 200px;
-  margin: 10px;
+  margin: 10px 10px 10px 65px;
+  grid-area: logo;
 }
 
 .button-active {
@@ -54,6 +70,7 @@ header img {
 .profile-info {
   background-color: #2B2B2B;
   color: #FFFFFF;
+  font-size:25px;
   display: flex;
   justify-content: center;
   width:100%;
@@ -76,8 +93,8 @@ header img {
 }
 
 .grid {
-  background-color: grey;
-  max-width: 1500px;
+  background-color: #191919;
+  width:100%;
 }
 
 /* clear fix */
@@ -85,15 +102,15 @@ header img {
   content: '';
   display: block;
   clear: both;
+
 }
 
 .grid-item {
   float: left;
   width: 200px;
   height: max-content;
-  background-color: lavender;
-  border: 2px dotted;
-  margin: 10px;
+  background-color: #FFFFFF;
+  margin: 50px 0px 0px 150px;
   border-radius: 10px;
 }
 
@@ -104,14 +121,14 @@ header img {
 .grid-item--width2 {
   width: 400px;
   height: max-content;
-  background-color: pink;
+  background-color: #FFFFFF;
   border: 2px solid;
 }
 
 .grid-item--height2 {
   width:400px;
   height: 250px;
-  background-color: pink;
+  background-color: #FFFFFF;
   border: 2px solid;
 }
 
@@ -196,4 +213,10 @@ z-index: 2; /* above other draggies */
 .activity-life-time-miles {
   grid-area: active;
   width: 33%;
+}
+
+article {
+  overflow-wrap: break-word;
+  text-align: center;
+  padding: 5px;
 }
